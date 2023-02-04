@@ -18,7 +18,7 @@ phase=$2
 ids=`aws codebuild list-builds-for-project --project-name $project | jq -r '.ids[0]'`
 status=`aws codebuild batch-get-builds --ids ${ids} |jq -r '.builds[].phases[].phaseStatus' |grep FAILED`
 API_TOKEN="<telegram bot token>"
-CHAT_ID="255963972"
+CHAT_ID="<chat>"
 AUTHOR=`git log -1 |grep Author |awk {'print $2" "$3'}`
 
 case $phase in
